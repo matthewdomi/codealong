@@ -1,5 +1,5 @@
-import line from "../assets/Linely.jpg"
+import PIANO from "../assets/img/PIANO.jpg";
 
 export const Image = () => {
-    return <img src={line} alt="" />;
+    return <img src={PIANO}alt=" " />;
 };

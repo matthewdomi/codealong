@@ -1,6 +1,5 @@
-function Header( ) {
-    return <h1> My first component</h1>;
+function Header() {
+  return <h1>My first component</h1>
 }
 
-// Exporting a function
-export default Header
+export default Header;
