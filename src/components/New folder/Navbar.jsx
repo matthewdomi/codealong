@@ -1,5 +1,5 @@
 import React from 'react';
-import NavItem from './NavItem';
+import NavItem from './Navitem';
 
 function Navbar() {
     return (
@@ -17,6 +17,4 @@ function Navbar() {
     
   }
   
-  export default Navbar;
-
-
+  export default Navbar;=
