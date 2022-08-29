@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {NameContextProvider} from "./components/context/nameContext"
+import { ProductContextProvider } from './context/ProductContext';
+import {TaskContextProvider} from "./context/tasksContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <NameContextProvider>
+      <ProductContextProvider>
+        <TaskContextProvider>
+          <App />
+        </TaskContextProvider>
+      </ProductContextProvider>
+    </NameContextProvider>
   </React.StrictMode>
 );
 
