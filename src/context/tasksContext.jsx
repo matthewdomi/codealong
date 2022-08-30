@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 
@@ -9,7 +9,7 @@ export const TaskContext = createContext({
 });
 
 
-export const TaskContextProvider = ({chidren}) =>{
+export const TaskContextProvider = ({children}) =>{
     const [tasks, setTasks] = useState([]);
     const {data, setValue} = useLocalStorage("tasks", []);
 
@@ -27,3 +27,9 @@ export const TaskContextProvider = ({chidren}) =>{
 
 
 export const useTaskContext = () => useContext(TaskContext);
+
+
+//MongoDB (Database)
+//Express (Backend)
+//React (frontEnd)
+// Node (Programming Language)

@@ -2,7 +2,7 @@ import {BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ProductList from "./components/ProductList";
 import TaskManager from "./components/TaskManager";
-import About from "./pages/About";
+import About from "./pages/About.jsx";
 import Contact from "./pages/Contact"; 
 import Home from "./pages/Home" ;
 

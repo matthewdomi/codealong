@@ -7,6 +7,6 @@ function NavItem({ label,to}) {
       <NavLink to={to}>{label}</NavLink>
     </li>
     )  
-  } 
+  }      
  
-  export default NavItem; 
+  export default NavItem;         

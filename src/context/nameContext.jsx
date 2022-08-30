@@ -22,5 +22,5 @@ export const NameContextProvider = ({children}) => {
 }
 
 export const useNameContext = () => {
-    useContext(NameContext)
+    useNameContext(NameContext)
 };

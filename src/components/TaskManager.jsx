@@ -1,6 +1,6 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect} from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
-import {useNameContext} from "../components/context/nameContext";
+import {useNameContext} from "../context/nameContext";
 
 
 import {v4 as uuid} from "uuid";
@@ -35,15 +35,45 @@ function TaskManager() {
     };
 
     const handleDelete = (id) => {
-      const newTasks = data.filter((task) => task.id !==id);
+      const newTasks = tasks.filter((task) => task.id !==id);
       setValue(newTasks);
     };
+
+    const handleCompleted = (id) => {
+      const newTasks = tasks.map((task) =>{
+        if(task.id === id){
+          return{
+            ...task,
+            completed: !task.completed,
+          };
+
+        } return task;
+      });
+
+      setValue(newTasks);
+
+
+    };
+    const handleEdit = (id) => {
+      const newTasks = tasks.filter((task) =>{
+        if (task.id === id){
+          setInput(task.text);
+          return false;
+        } 
+        return task;
+      });
+      setValue(newTasks);
+    };
+
+    useEffect(() => {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks]);
 
         return (
           
           <div className="h-screen w-screen bg-blue-600 flex justify-center items-center">
               <div className="max-w-3xl bg-white rounded-xl px-5 py-10 max-h-96">
-                  <h3 className="text-3xl text-center my-5">Welcome, {name}!</h3>
+                  <h3 className="text-3xl text-center my-5">Welcome, !</h3>
                   <form  onSubmit={handleSubmit}
                         className="space-x-5 flex w-[30rem] mb-10">
                       <input type="text" 
@@ -62,8 +92,14 @@ function TaskManager() {
                   </form>
       
                   <div className="space-y-2 overflow-y-auto h-56">
-                      {data.map((task) => (
-                        <TaskItem key={task.id} task={task} handleDelete={handleDelete}/>
+                      {tasks.map((task) => (
+                        <TaskItem 
+                        key={task.id} 
+                        task={task} 
+                        handleDelete={handleDelete}
+                        handleCompleted ={handleCompleted}
+                        handleEdit = {handleEdit}
+                        />
                       ))}
                   </div>
               </div>
